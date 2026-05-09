@@ -347,6 +347,8 @@
     <ClCompile Include="DiskService.c" />
     <ClCompile Include="DiskService_diskpart.c" />
     <ClCompile Include="DiskService_vds.c" />
+    <ClCompile Include="DiskService_vds_errors.c" />
+    <ClCompile Include="DiskService_vds_volume.c" />
     <ClCompile Include="DiskService_wmsa.c" />
     <ClCompile Include="fat_io_lib\fat_access.c" />
     <ClCompile Include="fat_io_lib\fat_cache.c" />
@@ -363,12 +365,35 @@
     <ClCompile Include="Language.c" />
     <ClCompile Include="PartDialog.c" />
     <ClCompile Include="PhyDrive.c" />
+    <ClCompile Include="PhyDrive_clear.c" />
+    <ClCompile Include="PhyDrive_fatver.c" />
+    <ClCompile Include="PhyDrive_format.c" />
+    <ClCompile Include="PhyDrive_install.c" />
+    <ClCompile Include="PhyDrive_match.c" />
+    <ClCompile Include="PhyDrive_resize.c" />
+    <ClCompile Include="PhyDrive_secboot.c" />
+    <ClCompile Include="PhyDrive_update.c" />
     <ClCompile Include="process.c" />
     <ClCompile Include="Utility.c" />
+    <ClCompile Include="Utility_file.c" />
+    <ClCompile Include="Utility_log.c" />
+    <ClCompile Include="Utility_partition.c" />
+    <ClCompile Include="Utility_winver.c" />
     <ClCompile Include="Ventoy2Disk.c" />
     <ClCompile Include="VentoyJson.c" />
+    <ClCompile Include="VentoyJson_get.c" />
+    <ClCompile Include="VentoyJson_parse.c" />
     <ClCompile Include="ventoy_cli.c" />
+    <ClCompile Include="ventoy_cli_args.c" />
+    <ClCompile Include="ventoy_cli_console.c" />
+    <ClCompile Include="ventoy_cli_drive.c" />
+    <ClCompile Include="ventoy_cli_ops.c" />
     <ClCompile Include="WinDialog.c" />
+    <ClCompile Include="WinDialog_a.c" />
+    <ClCompile Include="WinDialog_b.c" />
+    <ClCompile Include="WinDialog_c.c" />
+    <ClCompile Include="WinDialog_d.c" />
+    <ClCompile Include="WinDialog_e.c" />
     <ClCompile Include="xz-embedded-20130513\linux\lib\decompress_unxz.c" />
     <ClCompile Include="YesDialog.c" />
   </ItemGroup>
@@ -393,6 +418,7 @@
     <ClInclude Include="process.h" />
     <ClInclude Include="resource.h" />
     <ClInclude Include="Ventoy2Disk.h" />
+    <ClInclude Include="ventoy_cli.h" />
     <ClInclude Include="VentoyJson.h" />
   </ItemGroup>
   <ItemGroup>

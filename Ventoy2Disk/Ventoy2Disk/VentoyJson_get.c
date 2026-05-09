@@ -1,0 +1,305 @@
+/******************************************************************************
+ * VentoyJson_get.c — read-only accessors over a parsed VTOY_JSON tree
+ *
+ * Copyright (c) 2021, longpanda <admin@ventoy.net>
+ * SPDX-License-Identifier: GPL-3.0-or-later
+ */
+
+#ifdef FOR_VTOY_JSON_CHECK
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#else
+#include <Windows.h>
+#include "Ventoy2Disk.h"
+#endif
+
+#include "VentoyJson.h"
+
+VTOY_JSON *vtoy_json_find_item
+(
+    VTOY_JSON *pstJson,
+    JSON_TYPE  enDataType,
+    const char *szKey
+)
+{
+    while (NULL != pstJson)
+    {
+        if ((enDataType == pstJson->enDataType) &&
+            (0 == strcmp(szKey, pstJson->pcName)))
+        {
+            return pstJson;
+        }
+        pstJson = pstJson->pstNext;
+    }
+
+    return NULL;
+}
+
+int vtoy_json_scan_parse
+(
+    const VTOY_JSON    *pstJson,
+    UINT32       uiParseNum,
+    JSON_PARSE         *pstJsonParse
+)
+{
+    UINT32 i = 0;
+    const VTOY_JSON *pstJsonCur = NULL;
+    JSON_PARSE *pstCurParse = NULL;
+
+    for (pstJsonCur = pstJson; NULL != pstJsonCur; pstJsonCur = pstJsonCur->pstNext)
+    {
+        if ((JSON_TYPE_OBJECT == pstJsonCur->enDataType) ||
+            (JSON_TYPE_ARRAY == pstJsonCur->enDataType))
+        {
+            continue;
+        }
+
+        for (i = 0, pstCurParse = NULL; i < uiParseNum; i++)
+        {
+            if (0 == strcmp(pstJsonParse[i].pcKey, pstJsonCur->pcName))
+            {
+                pstCurParse = pstJsonParse + i;
+                break;
+            }
+        }
+
+        if (NULL == pstCurParse)
+        {
+            continue;
+        }
+
+        switch (pstJsonCur->enDataType)
+        {
+            case JSON_TYPE_NUMBER:
+            {
+                if (sizeof(UINT32) == pstCurParse->uiBufSize)
+                {
+                    *(UINT32 *)(pstCurParse->pDataBuf) = (UINT32)pstJsonCur->unData.lValue;
+                }
+                else if (sizeof(UINT16) == pstCurParse->uiBufSize)
+                {
+                    *(UINT16 *)(pstCurParse->pDataBuf) = (UINT16)pstJsonCur->unData.lValue;
+                }
+                else if (sizeof(UINT8) == pstCurParse->uiBufSize)
+                {
+                    *(UINT8 *)(pstCurParse->pDataBuf) = (UINT8)pstJsonCur->unData.lValue;
+                }
+                else if ((pstCurParse->uiBufSize > sizeof(UINT64)))
+                {
+                    sprintf_s((char *)pstCurParse->pDataBuf, pstCurParse->uiBufSize, "%llu",
+                        (unsigned long long)(pstJsonCur->unData.lValue));
+                }
+                else
+                {
+                    Log("Invalid number data buf size %u.", pstCurParse->uiBufSize);
+                }
+                break;
+            }
+            case JSON_TYPE_STRING:
+            {
+                strcpy_s((char *)pstCurParse->pDataBuf, pstCurParse->uiBufSize, pstJsonCur->unData.pcStrVal);
+                break;
+            }
+            case JSON_TYPE_BOOL:
+            {
+                *(UINT8 *)(pstCurParse->pDataBuf) = (pstJsonCur->unData.lValue) > 0 ? 1 : 0;
+                break;
+            }
+            default :
+            {
+                break;
+            }
+        }
+    }
+
+    return JSON_SUCCESS;
+}
+
+int vtoy_json_scan_array
+(
+     VTOY_JSON *pstJson,
+     const char *szKey,
+     VTOY_JSON **ppstArrayItem
+)
+{
+    VTOY_JSON *pstJsonItem = NULL;
+
+    pstJsonItem = vtoy_json_find_item(pstJson, JSON_TYPE_ARRAY, szKey);
+    if (NULL == pstJsonItem)
+    {
+        Log("Key %s is not found in json data.", szKey);
+        return JSON_NOT_FOUND;
+    }
+
+    *ppstArrayItem = pstJsonItem;
+
+    return JSON_SUCCESS;
+}
+
+int vtoy_json_scan_array_ex
+(
+     VTOY_JSON *pstJson,
+     const char *szKey,
+     VTOY_JSON **ppstArrayItem
+)
+{
+    VTOY_JSON *pstJsonItem = NULL;
+
+    pstJsonItem = vtoy_json_find_item(pstJson, JSON_TYPE_ARRAY, szKey);
+    if (NULL == pstJsonItem)
+    {
+        Log("Key %s is not found in json data.", szKey);
+        return JSON_NOT_FOUND;
+    }
+
+    *ppstArrayItem = pstJsonItem->pstChild;
+
+    return JSON_SUCCESS;
+}
+
+int vtoy_json_scan_object
+(
+     VTOY_JSON *pstJson,
+     const char *szKey,
+     VTOY_JSON **ppstObjectItem
+)
+{
+    VTOY_JSON *pstJsonItem = NULL;
+
+    pstJsonItem = vtoy_json_find_item(pstJson, JSON_TYPE_OBJECT, szKey);
+    if (NULL == pstJsonItem)
+    {
+        Log("Key %s is not found in json data.", szKey);
+        return JSON_NOT_FOUND;
+    }
+
+    *ppstObjectItem = pstJsonItem;
+
+    return JSON_SUCCESS;
+}
+
+int vtoy_json_get_int
+(
+    VTOY_JSON *pstJson,
+    const char *szKey,
+    int *piValue
+)
+{
+    VTOY_JSON *pstJsonItem = NULL;
+
+    pstJsonItem = vtoy_json_find_item(pstJson, JSON_TYPE_NUMBER, szKey);
+    if (NULL == pstJsonItem)
+    {
+        Log("Key %s is not found in json data.", szKey);
+        return JSON_NOT_FOUND;
+    }
+
+    *piValue = (int)pstJsonItem->unData.lValue;
+
+    return JSON_SUCCESS;
+}
+
+int vtoy_json_get_uint
+(
+    VTOY_JSON *pstJson,
+    const char *szKey,
+    UINT32 *puiValue
+)
+{
+    VTOY_JSON *pstJsonItem = NULL;
+
+    pstJsonItem = vtoy_json_find_item(pstJson, JSON_TYPE_NUMBER, szKey);
+    if (NULL == pstJsonItem)
+    {
+        Log("Key %s is not found in json data.", szKey);
+        return JSON_NOT_FOUND;
+    }
+
+    *puiValue = (UINT32)pstJsonItem->unData.lValue;
+
+    return JSON_SUCCESS;
+}
+
+int vtoy_json_get_uint64
+(
+    VTOY_JSON *pstJson,
+    const char *szKey,
+    UINT64 *pui64Value
+)
+{
+    VTOY_JSON *pstJsonItem = NULL;
+
+    pstJsonItem = vtoy_json_find_item(pstJson, JSON_TYPE_NUMBER, szKey);
+    if (NULL == pstJsonItem)
+    {
+        Log("Key %s is not found in json data.", szKey);
+        return JSON_NOT_FOUND;
+    }
+
+    *pui64Value = (UINT64)pstJsonItem->unData.lValue;
+
+    return JSON_SUCCESS;
+}
+
+int vtoy_json_get_bool
+(
+    VTOY_JSON *pstJson,
+    const char *szKey,
+    UINT8 *pbValue
+)
+{
+    VTOY_JSON *pstJsonItem = NULL;
+
+    pstJsonItem = vtoy_json_find_item(pstJson, JSON_TYPE_BOOL, szKey);
+    if (NULL == pstJsonItem)
+    {
+        Log("Key %s is not found in json data.", szKey);
+        return JSON_NOT_FOUND;
+    }
+
+    *pbValue = pstJsonItem->unData.lValue > 0 ? 1 : 0;
+
+    return JSON_SUCCESS;
+}
+
+int vtoy_json_get_string
+(
+     VTOY_JSON *pstJson,
+     const char *szKey,
+     UINT32  uiBufLen,
+     char *pcBuf
+)
+{
+    VTOY_JSON *pstJsonItem = NULL;
+
+    pstJsonItem = vtoy_json_find_item(pstJson, JSON_TYPE_STRING, szKey);
+    if (NULL == pstJsonItem)
+    {
+        Log("Key %s is not found in json data.", szKey);
+        return JSON_NOT_FOUND;
+    }
+
+    strcpy_s(pcBuf, uiBufLen, pstJsonItem->unData.pcStrVal);
+
+    return JSON_SUCCESS;
+}
+
+const char * vtoy_json_get_string_ex(VTOY_JSON *pstJson,  const char *szKey)
+{
+    VTOY_JSON *pstJsonItem = NULL;
+
+    if ((NULL == pstJson) || (NULL == szKey))
+    {
+        return NULL;
+    }
+
+    pstJsonItem = vtoy_json_find_item(pstJson, JSON_TYPE_STRING, szKey);
+    if (NULL == pstJsonItem)
+    {
+        Log("Key %s is not found in json data.", szKey);
+        return NULL;
+    }
+
+    return pstJsonItem->unData.pcStrVal;
+}

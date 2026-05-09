@@ -177,11 +177,16 @@
     <ClCompile Include="..\..\..\src\Core\ventoy_disk.c" />
     <ClCompile Include="..\..\..\src\Core\ventoy_disk_windows.c" />
     <ClCompile Include="..\..\..\src\Core\ventoy_json.c" />
+    <ClCompile Include="..\..\..\src\Core\ventoy_json_get.c" />
+    <ClCompile Include="..\..\..\src\Core\ventoy_json_parse.c" />
     <ClCompile Include="..\..\..\src\Core\ventoy_log.c" />
     <ClCompile Include="..\..\..\src\Core\ventoy_md5.c" />
     <ClCompile Include="..\..\..\src\Core\ventoy_utf.c" />
     <ClCompile Include="..\..\..\src\Core\ventoy_util.c" />
     <ClCompile Include="..\..\..\src\Core\ventoy_util_windows.c" />
+    <ClCompile Include="..\..\..\src\Core\ventoy_util_windows_disk.c" />
+    <ClCompile Include="..\..\..\src\Core\ventoy_util_windows_path.c" />
+    <ClCompile Include="..\..\..\src\Core\ventoy_util_windows_thread.c" />
     <ClCompile Include="..\..\..\src\Lib\fat_io_lib\fat_access.c" />
     <ClCompile Include="..\..\..\src\Lib\fat_io_lib\fat_cache.c" />
     <ClCompile Include="..\..\..\src\Lib\fat_io_lib\fat_filelib.c" />
@@ -194,6 +199,20 @@
     <ClCompile Include="..\..\..\src\Lib\xz-embedded\linux\lib\decompress_unxz.c" />
     <ClCompile Include="..\..\..\src\main_windows.c" />
     <ClCompile Include="..\..\..\src\Web\ventoy_http.c" />
+    <ClCompile Include="..\..\..\src\Web\ventoy_http_data_ct.c" />
+    <ClCompile Include="..\..\..\src\Web\ventoy_http_data_dud.c" />
+    <ClCompile Include="..\..\..\src\Web\ventoy_http_data_inj.c" />
+    <ClCompile Include="..\..\..\src\Web\ventoy_http_data_install.c" />
+    <ClCompile Include="..\..\..\src\Web\ventoy_http_data_lists.c" />
+    <ClCompile Include="..\..\..\src\Web\ventoy_http_data_menu.c" />
+    <ClCompile Include="..\..\..\src\Web\ventoy_http_data_pwd.c" />
+    <ClCompile Include="..\..\..\src\Web\ventoy_http_handler.c" />
+    <ClCompile Include="..\..\..\src\Web\ventoy_http_load.c" />
+    <ClCompile Include="..\..\..\src\Web\ventoy_http_parse1.c" />
+    <ClCompile Include="..\..\..\src\Web\ventoy_http_parse2.c" />
+    <ClCompile Include="..\..\..\src\Web\ventoy_http_parse3.c" />
+    <ClCompile Include="..\..\..\src\Web\ventoy_http_save.c" />
+    <ClCompile Include="..\..\..\src\Web\ventoy_http_util.c" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\..\src\Core\ventoy_define.h" />

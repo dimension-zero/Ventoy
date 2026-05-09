@@ -170,6 +170,13 @@
     <ClCompile Include="fat_io_lib\fat_write.c" />
     <ClCompile Include="setupmon.c" />
     <ClCompile Include="vtoyjump.c" />
+    <ClCompile Include="vtoyjump_a.c" />
+    <ClCompile Include="vtoyjump_b.c" />
+    <ClCompile Include="vtoyjump_c.c" />
+    <ClCompile Include="vtoyjump_d.c" />
+    <ClCompile Include="vtoyjump_e.c" />
+    <ClCompile Include="vtoyjump_f.c" />
+    <ClCompile Include="vtoyjump_g.c" />
     <ClCompile Include="xz-embedded-20130513\linux\lib\decompress_unxz.c" />
   </ItemGroup>
   <ItemGroup>
