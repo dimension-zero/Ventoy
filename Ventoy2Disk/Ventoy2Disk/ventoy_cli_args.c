@@ -1,6 +1,7 @@
 #include <Windows.h>
 #include <stdio.h>
 #include "Ventoy2Disk.h"
+#include "Language.h"
 #include "DiskService.h"
 #include "ventoy_cli.h"
 

@@ -296,7 +296,7 @@ End:
 }
 
 
-static BOOL DiskCheckWriteAccess(HANDLE hDrive)
+BOOL DiskCheckWriteAccess(HANDLE hDrive)
 {
 	DWORD dwSize;
 	BOOL ret = FALSE;
@@ -348,7 +348,7 @@ out:
 	return bRet;
 }
 
-static BOOL BackupDataBeforeCleanDisk(int PhyDrive, UINT64 DiskSize, BYTE **pBackup)
+BOOL BackupDataBeforeCleanDisk(int PhyDrive, UINT64 DiskSize, BYTE **pBackup)
 {
 	DWORD dwSize;
 	DWORD dwStatus;
@@ -452,7 +452,7 @@ out:
 }
 
 
-static BOOL WriteBackupDataToDisk(HANDLE hDrive, UINT64 Offset, BYTE *Data, DWORD Length)
+BOOL WriteBackupDataToDisk(HANDLE hDrive, UINT64 Offset, BYTE *Data, DWORD Length)
 {
 	DWORD dwSize = 0;
 	BOOL ret = FALSE;

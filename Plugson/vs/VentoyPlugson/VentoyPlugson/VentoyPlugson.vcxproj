@@ -98,7 +98,7 @@
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <UACExecutionLevel>RequireAdministrator</UACExecutionLevel>
-      <DelayLoadDLLs>gdi32.dll;winspool.dll;comdlg32.dll;advapi32.dll;shell32.dll;ole32.dll;oleaut32.dll;uuid.dll;odbc32.dll;odbccp32.dll</DelayLoadDLLs>
+      <DelayLoadDLLs>shell32.dll;ole32.dll</DelayLoadDLLs>
     </Link>
     <Manifest>
       <AdditionalManifestFiles>$(ProjectDir)\Res\Plugson32.manifest %(AdditionalManifestFiles)</AdditionalManifestFiles>
@@ -118,7 +118,7 @@
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <UACExecutionLevel>RequireAdministrator</UACExecutionLevel>
-      <DelayLoadDLLs>gdi32.dll;winspool.dll;comdlg32.dll;advapi32.dll;shell32.dll;ole32.dll;oleaut32.dll;uuid.dll;odbc32.dll;odbccp32.dll</DelayLoadDLLs>
+      <DelayLoadDLLs>shell32.dll;ole32.dll</DelayLoadDLLs>
     </Link>
     <Manifest>
       <AdditionalManifestFiles>$(ProjectDir)\Res\Plugson32.manifest %(AdditionalManifestFiles)</AdditionalManifestFiles>
@@ -142,7 +142,7 @@
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <UACExecutionLevel>RequireAdministrator</UACExecutionLevel>
-      <DelayLoadDLLs>gdi32.dll;winspool.dll;comdlg32.dll;advapi32.dll;shell32.dll;ole32.dll;oleaut32.dll;uuid.dll;odbc32.dll;odbccp32.dll</DelayLoadDLLs>
+      <DelayLoadDLLs>shell32.dll;ole32.dll</DelayLoadDLLs>
     </Link>
     <Manifest>
       <AdditionalManifestFiles>$(ProjectDir)\Res\Plugson32.manifest %(AdditionalManifestFiles)</AdditionalManifestFiles>
@@ -166,7 +166,7 @@
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <UACExecutionLevel>RequireAdministrator</UACExecutionLevel>
-      <DelayLoadDLLs>gdi32.dll;winspool.dll;comdlg32.dll;advapi32.dll;shell32.dll;ole32.dll;oleaut32.dll;uuid.dll;odbc32.dll;odbccp32.dll</DelayLoadDLLs>
+      <DelayLoadDLLs>shell32.dll;ole32.dll</DelayLoadDLLs>
     </Link>
     <Manifest>
       <AdditionalManifestFiles>$(ProjectDir)\Res\Plugson64.manifest %(AdditionalManifestFiles)</AdditionalManifestFiles>
@@ -199,20 +199,6 @@
     <ClCompile Include="..\..\..\src\Lib\xz-embedded\linux\lib\decompress_unxz.c" />
     <ClCompile Include="..\..\..\src\main_windows.c" />
     <ClCompile Include="..\..\..\src\Web\ventoy_http.c" />
-    <ClCompile Include="..\..\..\src\Web\ventoy_http_data_ct.c" />
-    <ClCompile Include="..\..\..\src\Web\ventoy_http_data_dud.c" />
-    <ClCompile Include="..\..\..\src\Web\ventoy_http_data_inj.c" />
-    <ClCompile Include="..\..\..\src\Web\ventoy_http_data_install.c" />
-    <ClCompile Include="..\..\..\src\Web\ventoy_http_data_lists.c" />
-    <ClCompile Include="..\..\..\src\Web\ventoy_http_data_menu.c" />
-    <ClCompile Include="..\..\..\src\Web\ventoy_http_data_pwd.c" />
-    <ClCompile Include="..\..\..\src\Web\ventoy_http_handler.c" />
-    <ClCompile Include="..\..\..\src\Web\ventoy_http_load.c" />
-    <ClCompile Include="..\..\..\src\Web\ventoy_http_parse1.c" />
-    <ClCompile Include="..\..\..\src\Web\ventoy_http_parse2.c" />
-    <ClCompile Include="..\..\..\src\Web\ventoy_http_parse3.c" />
-    <ClCompile Include="..\..\..\src\Web\ventoy_http_save.c" />
-    <ClCompile Include="..\..\..\src\Web\ventoy_http_util.c" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\..\src\Core\ventoy_define.h" />

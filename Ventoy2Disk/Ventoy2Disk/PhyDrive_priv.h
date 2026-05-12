@@ -24,5 +24,9 @@ int WriteGrubStage1ToPhyDrive(HANDLE hDrive, int PartStyle);
 int FormatPart1LargeFAT32(UINT64 DiskSizeBytes, int CluserSize);
 int FormatPart1exFAT(UINT64 DiskSizeBytes);
 int ZeroPart1FileSystem(HANDLE hDrive, UINT64 Part2StartSector);
+BOOL DiskCheckWriteAccess(HANDLE hDrive);
+BOOL BackupDataBeforeCleanDisk(int PhyDrive, UINT64 DiskSize, BYTE **pBackup);
+BOOL WriteBackupDataToDisk(HANDLE hDrive, UINT64 Offset, BYTE *Data, DWORD Length);
+int VentoyProcSecureBoot(BOOL SecureBoot);
 
 #endif
