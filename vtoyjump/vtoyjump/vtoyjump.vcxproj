@@ -170,6 +170,18 @@
     <ClCompile Include="fat_io_lib\fat_write.c" />
     <ClCompile Include="setupmon.c" />
     <ClCompile Include="vtoyjump.c" />
+    <ClCompile Include="vtoyjump_log.c" />
+    <ClCompile Include="vtoyjump_io.c" />
+    <ClCompile Include="vtoyjump_fs.c" />
+    <ClCompile Include="vtoyjump_mount.c" />
+    <ClCompile Include="vtoyjump_iso.c" />
+    <ClCompile Include="vtoyjump_disk.c" />
+    <ClCompile Include="vtoyjump_inject.c" />
+    <ClCompile Include="vtoyjump_unattend_vars.c" />
+    <ClCompile Include="vtoyjump_unattend_proc.c" />
+    <ClCompile Include="vtoyjump_winver.c" />
+    <ClCompile Include="vtoyjump_vtoy.c" />
+    <ClCompile Include="vtoyjump_hook.c" />
     <ClCompile Include="xz-embedded-20130513\linux\lib\decompress_unxz.c" />
   </ItemGroup>
   <ItemGroup>
@@ -186,6 +198,7 @@
     <ClInclude Include="fat_io_lib\fat_types.h" />
     <ClInclude Include="fat_io_lib\fat_write.h" />
     <ClInclude Include="vtoyjump.h" />
+    <ClInclude Include="vtoyjump_priv.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -199,6 +199,24 @@
     <ClCompile Include="..\..\..\src\Lib\xz-embedded\linux\lib\decompress_unxz.c" />
     <ClCompile Include="..\..\..\src\main_windows.c" />
     <ClCompile Include="..\..\..\src\Web\ventoy_http.c" />
+    <ClCompile Include="..\..\..\src\Web\ventoy_http_helpers.c" />
+    <ClCompile Include="..\..\..\src\Web\ventoy_http_api_misc.c" />
+    <ClCompile Include="..\..\..\src\Web\ventoy_http_control.c" />
+    <ClCompile Include="..\..\..\src\Web\ventoy_http_theme.c" />
+    <ClCompile Include="..\..\..\src\Web\ventoy_http_alias.c" />
+    <ClCompile Include="..\..\..\src\Web\ventoy_http_tip.c" />
+    <ClCompile Include="..\..\..\src\Web\ventoy_http_class.c" />
+    <ClCompile Include="..\..\..\src\Web\ventoy_http_memdisk_imglist.c" />
+    <ClCompile Include="..\..\..\src\Web\ventoy_http_password.c" />
+    <ClCompile Include="..\..\..\src\Web\ventoy_http_confreplace.c" />
+    <ClCompile Include="..\..\..\src\Web\ventoy_http_dud.c" />
+    <ClCompile Include="..\..\..\src\Web\ventoy_http_auto_install.c" />
+    <ClCompile Include="..\..\..\src\Web\ventoy_http_persistence.c" />
+    <ClCompile Include="..\..\..\src\Web\ventoy_http_injection.c" />
+    <ClCompile Include="..\..\..\src\Web\ventoy_http_handler.c" />
+    <ClCompile Include="..\..\..\src\Web\ventoy_http_parse1.c" />
+    <ClCompile Include="..\..\..\src\Web\ventoy_http_parse2.c" />
+    <ClCompile Include="..\..\..\src\Web\ventoy_http_parse3.c" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\..\src\Core\ventoy_define.h" />
@@ -219,6 +237,7 @@
     <ClInclude Include="..\..\..\src\Lib\fat_io_lib\fat_write.h" />
     <ClInclude Include="..\..\..\src\Lib\libhttp\include\civetweb.h" />
     <ClInclude Include="..\..\..\src\Web\ventoy_http.h" />
+    <ClInclude Include="..\..\..\src\Web\ventoy_http_priv.h" />
     <ClInclude Include="resource.h" />
   </ItemGroup>
   <ItemGroup>

@@ -41,6 +41,13 @@ c:\shared\source\repos\oss\ventoy\ventoy2disk\ventoy2disk\ventoy2disk\release\pa
 c:\shared\source\repos\oss\ventoy\ventoy2disk\ventoy2disk\ventoy2disk\release\language.obj
 c:\shared\source\repos\oss\ventoy\ventoy2disk\ventoy2disk\ventoy2disk\release\yesdialog.obj
 c:\shared\source\repos\oss\ventoy\ventoy2disk\ventoy2disk\ventoy2disk\release\decompress_unxz.obj
+c:\shared\source\repos\oss\ventoy\ventoy2disk\ventoy2disk\ventoy2disk\release\windialog_proc.obj
+c:\shared\source\repos\oss\ventoy\ventoy2disk\ventoy2disk\ventoy2disk\release\windialog_resize.obj
+c:\shared\source\repos\oss\ventoy\ventoy2disk\ventoy2disk\ventoy2disk\release\windialog_threads.obj
+c:\shared\source\repos\oss\ventoy\ventoy2disk\ventoy2disk\ventoy2disk\release\windialog_ctrl.obj
+c:\shared\source\repos\oss\ventoy\ventoy2disk\ventoy2disk\ventoy2disk\release\windialog_language.obj
+c:\shared\source\repos\oss\ventoy\ventoy2disk\ventoy2disk\ventoy2disk\release\windialog_combo.obj
+c:\shared\source\repos\oss\ventoy\ventoy2disk\ventoy2disk\ventoy2disk\release\windialog_init.obj
 c:\shared\source\repos\oss\ventoy\ventoy2disk\ventoy2disk\ventoy2disk\release\windialog.obj
 c:\shared\source\repos\oss\ventoy\ventoy2disk\ventoy2disk\ventoy2disk\release\ventoy_cli_ops.obj
 c:\shared\source\repos\oss\ventoy\ventoy2disk\ventoy2disk\ventoy2disk\release\ventoy_cli_drive.obj

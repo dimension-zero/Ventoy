@@ -389,6 +389,13 @@
     <ClCompile Include="ventoy_cli_drive.c" />
     <ClCompile Include="ventoy_cli_ops.c" />
     <ClCompile Include="WinDialog.c" />
+    <ClCompile Include="WinDialog_init.c" />
+    <ClCompile Include="WinDialog_combo.c" />
+    <ClCompile Include="WinDialog_language.c" />
+    <ClCompile Include="WinDialog_ctrl.c" />
+    <ClCompile Include="WinDialog_threads.c" />
+    <ClCompile Include="WinDialog_resize.c" />
+    <ClCompile Include="WinDialog_proc.c" />
     <ClCompile Include="xz-embedded-20130513\linux\lib\decompress_unxz.c" />
     <ClCompile Include="YesDialog.c" />
   </ItemGroup>
@@ -413,6 +420,7 @@
     <ClInclude Include="process.h" />
     <ClInclude Include="resource.h" />
     <ClInclude Include="Ventoy2Disk.h" />
+    <ClInclude Include="WinDialog_priv.h" />
     <ClInclude Include="ventoy_cli.h" />
     <ClInclude Include="VentoyJson.h" />
   </ItemGroup>
