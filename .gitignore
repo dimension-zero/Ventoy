@@ -25,3 +25,12 @@ cli_done.txt
 cli_percent.txt
 log.txt
 
+# Bootstrap data fetched by bootstrap-data.ps1 (from upstream release zip)
+/INSTALL/boot/boot.img
+/INSTALL/boot/core.img.xz
+/INSTALL/ventoy/version
+/INSTALL/ventoy/ventoy.disk.img.xz
+/INSTALL/ventoy/ventoy_4k.disk.img.xz
+/INSTALL/ventoy/languages.json
+/INSTALL/ventoy/plugson.tar.xz
+

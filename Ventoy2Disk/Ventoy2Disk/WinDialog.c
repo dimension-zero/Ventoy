@@ -318,12 +318,32 @@ int APIENTRY WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLi
     LogCache(FALSE);
     LogFlush();
 
-    /* /HELP /? /V /L are read-only and need no local boot files */
+    /* /HELP /? /V /L are read-only and need no local boot files.
+     * /DEV (or VENTOY_DEV=1) skips the check entirely for contributors who want
+     * to launch the GUI without first running bootstrap-data.ps1. */
     {
         BOOL needBootFiles = TRUE;
-        if (g_CLI_Mode)
+        int k;
+        for (k = 1; k < __argc; k++)
         {
-            int k;
+            if (_stricmp(__argv[k], "/DEV") == 0)
+            {
+                Log("/DEV flag set, skipping boot-file presence check");
+                needBootFiles = FALSE;
+                break;
+            }
+        }
+        if (needBootFiles)
+        {
+            CHAR envBuf[8] = { 0 };
+            if (GetEnvironmentVariableA("VENTOY_DEV", envBuf, sizeof(envBuf)) > 0 && envBuf[0] == '1')
+            {
+                Log("VENTOY_DEV=1, skipping boot-file presence check");
+                needBootFiles = FALSE;
+            }
+        }
+        if (g_CLI_Mode && needBootFiles)
+        {
             for (k = 2; k < __argc; k++)
             {
                 if (_stricmp(__argv[k], "/HELP") == 0 || _stricmp(__argv[k], "/?") == 0 ||
